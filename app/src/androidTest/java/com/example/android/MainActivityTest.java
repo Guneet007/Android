@@ -2,43 +2,43 @@ package com.example.android;
 
 import android.app.Activity;
 import android.app.Instrumentation;
-import android.content.Intent;
 import android.support.test.rule.ActivityTestRule;
+import android.support.v7.app.AppCompatActivity;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.robolectric.Robolectric;
-import org.robolectric.android.controller.ActivityController;
-import org.robolectric.shadows.ShadowLooper;
 
-import static org.junit.Assert.*;
-import static org.robolectric.Shadows.shadowOf;
+import static android.support.test.InstrumentationRegistry.getInstrumentation;
+import static junit.framework.TestCase.assertNotNull;
 
-public class MainActivityTest extends Activity {
-
+public class MainActivityTest {
     @Rule
-    public ActivityTestRule<MainActivity> mact = new ActivityTestRule<>(MainActivity.class);
-    private MainActivity mActivity = null;
-    Instrumentation.ActivityMonitor monitor = getI
+    public ActivityTestRule<MainActivity> mActivityTestRule=new ActivityTestRule<MainActivity>(MainActivity.class);
+    private MainActivity mActivity=null;
+    Instrumentation.ActivityMonitor activityMonitor= getInstrumentation().addMonitor(next.class.getName(),null,false);
+
 
     @Before
-    public void start(){
-        mActivity=mact.getActivity();
+    public void setUp() throws Exception {
+        mActivity=mActivityTestRule.getActivity();
+
+    }
+    @Test
+    public  void Test()
+    {
+       Activity nextactivity= getInstrumentation().waitForMonitorWithTimeout(activityMonitor,4000);
+       assertNotNull(nextactivity);
+    }
+
+
+
+    @After
+    public void tearDown() throws Exception {
+        mActivity=null;
 
     }
 
-    @Test   //Tests Launching of activity after SplashScreen.
-    public void testLaunch() {
-        ActivityController<MainActivityTest> mainActivityTestActivityController;
-        mainActivityTestActivityController = Robolectric.buildActivity(MainActivityTest.class);
-        mainActivityTestActivityController.create();
-        ActivityController<MainActivityTest> controller = mainActivityTestActivityController.start();
-        ShadowLooper.runUiThreadTasksIncludingDelayedTasks();
-            MainActivityTest splashScreenActivity = controller.get();
-            Intent expectedIntent = new Intent(splashScreenActivity, next.class);
-
-            assertEquals(expectedIntent,shadowOf(splashScreenActivity).getNextStartedActivity());
-    }
 
 }
