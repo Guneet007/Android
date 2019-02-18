@@ -8,14 +8,15 @@
     android:background="@drawable/splash_wallpaper">
 
     <TextView
+        android:id="@+id/tvText"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-         android:layout_weight="1"
+        android:layout_height="68dp"
+        android:layout_weight="1"
+        android:fontFamily="sans-serif-condensed"
         android:gravity="center"
         android:text="Welcome!"
         android:textSize="50dp"
         android:textStyle="italic"
-        android:fontFamily="sans-serif-condensed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
