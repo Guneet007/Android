@@ -8,9 +8,10 @@
     android:background="@drawable/splash_wallpaper">
 
     <TextView
+        android:id="@+id/tvSplash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-         android:layout_weight="1"
+        android:layout_weight="1"
         android:gravity="center"
         android:text="Welcome!"
         android:textSize="50dp"
