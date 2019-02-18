@@ -3,7 +3,6 @@ package com.example.android;
 import android.app.Activity;
 import android.app.Instrumentation;
 import android.support.test.rule.ActivityTestRule;
-import android.support.v7.app.AppCompatActivity;
 
 import org.junit.After;
 import org.junit.Before;
@@ -17,7 +16,7 @@ public class MainActivityTest {
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule=new ActivityTestRule<MainActivity>(MainActivity.class);
     private MainActivity mActivity=null;
-    Instrumentation.ActivityMonitor activityMonitor= getInstrumentation().addMonitor(next.class.getName(),null,false);
+    Instrumentation.ActivityMonitor activityMonitor= getInstrumentation().addMonitor(Walkthrough.class.getName(),null,false);
 
 
     @Before

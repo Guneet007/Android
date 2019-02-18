@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
-    private static  int k=3000;
+    private static  int k=1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i =new Intent(MainActivity.this,next.class);
+                Intent i =new Intent(MainActivity.this, Walkthrough.class);
                 startActivity(i);
             }
         },k);
