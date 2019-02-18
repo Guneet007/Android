@@ -15,9 +15,11 @@ import static junit.framework.TestCase.assertNotNull;
 
 public class MainActivityTest {
     @Rule
-    public ActivityTestRule<MainActivity> mActivityTestRule=new ActivityTestRule<MainActivity>(MainActivity.class);
+    public ActivityTestRule<MainActivity> mActivityTestRule=
+            new ActivityTestRule<MainActivity>(MainActivity.class);
     private MainActivity mActivity=null;
-    Instrumentation.ActivityMonitor activityMonitor= getInstrumentation().addMonitor(next.class.getName(),null,false);
+    Instrumentation.ActivityMonitor activityMonitor=
+            getInstrumentation().addMonitor(next.class.getName(),null,false);
 
 
     @Before
@@ -28,7 +30,8 @@ public class MainActivityTest {
     @Test
     public  void Test()
     {
-       Activity nextactivity= getInstrumentation().waitForMonitorWithTimeout(activityMonitor,4000);
+       Activity nextactivity=
+               getInstrumentation().waitForMonitorWithTimeout(activityMonitor,4000);
        assertNotNull(nextactivity);
     }
 
