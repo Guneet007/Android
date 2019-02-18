@@ -38,7 +38,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/slide_heading"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="0dp"
         android:layout_marginTop="6dp"
         android:text="Description oecinwecinei neqiecne ceic eqicn ciqmc eqqceimeqqc eiceqfhe feqpod ejdkqoe djqf  "
         android:textAlignment="center"
